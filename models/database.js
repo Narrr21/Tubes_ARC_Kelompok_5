@@ -10,15 +10,24 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise()
 
-async function tes(){
+async function getMakananById(a){
     const result = await pool.query(`
     SELECT * FROM kulinerNangor
-    WHERE id = 1
-    `)
-    return result[0][0]
+    WHERE id = ?
+    `, [a])
+    return result[0][0]['foodName']
+}
+
+async function getImageById(a){
+    const result = await pool.query(`
+    SELECT * FROM kulinerNangor
+    WHERE id = ?
+    `, [a])
+    return result[0][0]['images']
 }
 
 
 module.exports = {
-    tes
+    getMakananById,
+    getImageById
 }
