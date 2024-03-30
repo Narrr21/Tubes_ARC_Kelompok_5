@@ -28,7 +28,7 @@ app.use((err, req, res, next) => {
 
 app.get('/', async (req, res) => {
     hasil = await db.tes()
-    res.render('index')
+    res.send(hasil)
 })
 
 app.listen(process.env.PORT || 3000)

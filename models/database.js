@@ -15,7 +15,7 @@ async function tes(){
     SELECT * FROM kulinerNangor
     WHERE id = 1
     `)
-    return result
+    return result[0][0]
 }
 
 
