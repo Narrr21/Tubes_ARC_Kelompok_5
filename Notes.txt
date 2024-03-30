@@ -1,0 +1,45 @@
+Ini buat catetan boleh diisi oleh siapa aja, kalau ada code yang complex, penjelasannya taruh aja disini. penjelasan dibagi by fitur, 
+ada yang masih bingung tanya aja di grup
+
+DATABASE : {
+    {fungsi di database itu ada get....By(id, uid, dll) misal getMakananById, getUserByUid. yang pasti akan mneghasilkan 1 nilai atau tidak ada. 
+    yang dihasilkan itu dalam bentuk JSON {id:...., name:.... dll}
+    jadi kalau mau dipake buat cari spesifik kaya gini :
+    misal mau nyari gambar dari makanan dengan id 5, hasil = (await db.getMakananById(5))['images']}
+
+    {fungsi lain dalam data base digunakan seperti ini :
+    hasil = (await db.getMakananByName(5))[0]['images']}
+}
+
+HOME : {
+
+}
+
+HEADER : {
+
+}
+
+FOOTER : {
+
+}
+
+SEARCH : {
+
+}
+
+ABOUT US : {
+
+}
+
+LOGIN : {
+
+}
+
+RANDOM : {
+
+}
+
+DATA PROFILE USER : {
+
+}
+

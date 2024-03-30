@@ -2,11 +2,11 @@ CREATE DATABASE lumbung;
 USE lumbung;
 
 CREATE TABLE kulinerNangor (
-	id VARCHAR(20) PRIMARY KEY,
+	id INTEGER PRIMARY KEY,
     foodName VARCHAR(255) NOT NULL,
     foodOrDrink VARCHAR(255) NOT NULL,
     images VARCHAR(255) NOT NULL, 
-    rating VARCHAR(225) NOT NULL
+    rating FLOAT NOT NULL
 );
 
 INSERT INTO kulinerNangor (id, foodName, foodOrDrink, images, rating)
@@ -16,4 +16,23 @@ VALUES
 
 SELECT * FROM kulinerNangor;
 
-DROP TABLE kulinerNangor;
+DROP TABLE kulinerNangor; # Run ini kalau mau Delete Table kulinernangor
+
+## Tabel User
+
+CREATE TABLE dataUser (
+	uid INTEGER PRIMARY KEY AUTO_INCREMENT,
+    userName VARCHAR(255) NOT NULL,
+    profilePicture VARCHAR(255) NOT NULL,
+    gender VARCHAR(1) NOT NULL, 
+    userAge INTEGER NOT NULL,
+    countFood INTEGER NOT NULL
+);
+
+INSERT INTO dataUser (userName, profilePicture, gender, userAge, countFood)
+VALUES 
+('John', 'john.jpg', 'L', 30, 0);
+
+SELECT * FROM dataUser;
+
+DROP TABLE dataUser;
