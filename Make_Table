@@ -1,38 +1,62 @@
 CREATE DATABASE lumbung;
+
 USE lumbung;
 
+CREATE TABLE account (
+	uid INTEGER PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO account (email, password)
+VALUES
+('tes@gmail.com', 'tespass');
+
+SELECT * FROM account;
+
+CREATE TABLE dataUser (
+    uid INTEGER PRIMARY KEY ,
+    userName VARCHAR(25) NOT NULL,
+    profilePicture VARCHAR(255) NOT NULL,
+    userAge INTEGER NOT NULL,
+    countFood INTEGER NOT NULL,
+    FOREIGN KEY (uid) REFERENCES account(uid)
+);
+
+INSERT INTO dataUser (uid, userName, profilePicture, userAge, countFood)
+VALUES
+('1', 'tes name', 'profile picture tes', '12', '10');
+
+SELECT * FROM dataUser;
+
 CREATE TABLE kulinerNangor (
-	id INTEGER PRIMARY KEY,
-    foodName VARCHAR(255) NOT NULL,
-    foodOrDrink VARCHAR(255) NOT NULL,
+	kulinerId INTEGER PRIMARY KEY,
+    foodName VARCHAR(100) NOT NULL,
+    foodOrDrink VARCHAR(20) NOT NULL,
     images VARCHAR(255) NOT NULL, 
     rating FLOAT NOT NULL
 );
 
-INSERT INTO kulinerNangor (id, foodName, foodOrDrink, images, rating)
+INSERT INTO kulinerNangor (kulinerId, foodName, foodOrDrink, images, rating)
 VALUES
 ('1', 'Gado gado', 'Makanan', 'https://tse3.mm.bing.net/th?id=OIP.P9qQ2ewGJ-ugtUeeOZeCVQHaHa&pid=Api&P=0&h=220', '9.2')
 
-
 SELECT * FROM kulinerNangor;
 
-DROP TABLE kulinerNangor; # Run ini kalau mau Delete Table kulinernangor
-
-## Tabel User
-
-CREATE TABLE dataUser (
-	uid INTEGER PRIMARY KEY AUTO_INCREMENT,
-    userName VARCHAR(255) NOT NULL,
-    profilePicture VARCHAR(255) NOT NULL,
-    gender VARCHAR(1) NOT NULL, 
-    userAge INTEGER NOT NULL,
-    countFood INTEGER NOT NULL
+CREATE TABLE review (
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    userId INTEGER,
+    kulinerId INTEGER,
+    reviewText TEXT,
+    rating INTEGER,
+    reviewDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userId) REFERENCES dataUser(uid),
+    FOREIGN KEY (kulinerId) REFERENCES kulinerNangor(kulinerId)
 );
 
-INSERT INTO dataUser (userName, profilePicture, gender, userAge, countFood)
-VALUES 
-('John', 'john.jpg', 'L', 30, 0);
+INSERT INTO review (userId, kulinerId, reviewText, rating)
+VALUES
+(1, 1, 'tes review', '9')
 
-SELECT * FROM dataUser;
 
-DROP TABLE dataUser;
+SELECT * FROM review;

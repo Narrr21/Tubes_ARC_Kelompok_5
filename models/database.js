@@ -17,8 +17,9 @@ async function getAllMakanan(){
     return result[0]
 }
 
-var blankMakanan = {
-    "id": "Nothing Found",
+var blankMakanan = 
+{
+    "kulinerId": "Nothing Found",
     "foodName": "Nothing Found",
     "foodOrDrink": "Nothing Found",
     "images": "Nothing Found",
@@ -56,7 +57,7 @@ async function getDataByCriteria(table, column, value) {
 }
 
 async function getMakananById(a){
-    return await getDataByCriteria('kulinerNangor', 'id', a)
+    return await getDataByCriteria('kulinerNangor', 'kulinerId', a)
 }
 
 async function getMakananByName(a) {
