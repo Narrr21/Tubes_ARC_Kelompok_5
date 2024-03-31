@@ -7,9 +7,9 @@ router
         res.render('home/index')
     })
     .get('/test',async (req, res) => {
-        let gambar = (await db.getMakananById(1, 0))["images"]
+        let gambar = (await db.getMakananById(1))[0]["images"]
         let nama = (await db.getMakananByRating(10))[0]["foodName"]
-        let userName = (await db.getUserByUid(1))["userName"]
+        let userName = (await db.getUserByUid(1))[0]["userName"]
         let age = (await db.getUserByCount(-5))[0]["userAge"]
         
         const Hasil = [gambar, nama, userName, age]

@@ -10,127 +10,161 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise()
 
-// Makanan
+async function getAllMakanan(){
+    var result = await pool.query(`
+    SELECT * FROM kulinerNangor
+    `)
+    return result[0]
+}
 
-var blankMakanan = 
-[{
+var blankMakanan = {
     "id": "Nothing Found",
     "foodName": "Nothing Found",
     "foodOrDrink": "Nothing Found",
     "images": "Nothing Found",
     "rating": "Nothing Found"
-}]
-
-async function getMakananById(a){
-    var result = await pool.query(`
-    SELECT * FROM kulinerNangor
-    WHERE id = ?
-    `, [a])
-    if (result[0].length == 0){
-        return blankUser[0]
-    }
-    return result[0][0]
 }
-
-async function getMakananByName(a){
-    const result = await pool.query(`
-    SELECT * FROM kulinerNangor
-    WHERE foodName = ?
-    `, [a])
-    return result[0]
-}
-
-async function getMakananByRating(a){
-    var result = await pool.query(`
-    SELECT * FROM kulinerNangor
-    WHERE rating = ?
-    `, [a])
-    if (result[0].length == 0){
-        return blankMakanan
-    }
-    return result[0]
-}
-
-async function getMakananByType(a){
-    const result = await pool.query(`
-    SELECT * FROM kulinerNangor
-    WHERE foodOrDrink = ?
-    `, [a])
-    return result[0]
-}
-
-// User
 
 var blankUser = 
-[{
+{
     "uid": "Nothing Found",
     "userName": "Nothing Found",
     "profilePicture": "Nothing Found",
     "userAge": "Nothing Found",
     "gender": "Nothing Found",
     "countFood": "Nothing Found"
-}]
+}
+  
+  
+async function getDataByCriteria(table, column, value) {
+    const result = await pool.query(`
+        SELECT * FROM ${table}
+        WHERE ${column} = ?
+        `, [value])
+  
+    if (result[0].length === 0) {
+        if (table == 'kulinerNangor'){
+            return [blankMakanan]
+        } else if (table == 'dataUser'){
+            return [blankUser]
+        } else {
+            return [[0]]
+        }
+        
+    }
+    return result[0]
+}
+
+async function getMakananById(a){
+    return await getDataByCriteria('kulinerNangor', 'id', a)
+}
+
+async function getMakananByName(a) {
+    return await getDataByCriteria('kulinerNangor', 'foodName', a)
+}
+  
+async function getMakananByRating(a) {
+    return await getDataByCriteria('kulinerNangor', 'rating', a)
+}
+  
+async function getMakananByType(a) {
+    return await getDataByCriteria('kulinerNangor', 'foodOrDrink', a)
+}
 
 async function getUserByUid(a){
-    var result = await pool.query(`
-    SELECT * FROM dataUser
-    WHERE uid = ?
-    `, [a])
-    if (result[0].length == 0){
-        return blankUser[0]
-    }
-    return result[0][0]
+    return await getDataByCriteria('dataUser', 'uid', a)
 }
 
-async function getUserByName(a){
+async function getUserByCount(a) {
+    return await getDataByCriteria('dataUser','countFood', a)
+}
+
+async function getDataMoreLessByCriteria(table, column, isGreaterThan, value) {
+    if (isGreaterThan) {
+        var result = await pool.query(`
+        SELECT * FROM ${table}
+        WHERE ${column} >= ?
+        `, [value])
+    } else {
+        var result = await pool.query(`
+        SELECT * FROM ${table}
+        WHERE ${column} <= ?
+        `, [value])
+    }
+    if (result[0].length === 0) {
+        if (table == 'kulinerNangor'){
+            return [blankMakanan]
+        } else if (table == 'dataUser'){
+            return [blankUser]
+        } else {
+            return [[0]]
+        }
+    }
+    return result[0];
+}
+
+async function getUserMoreByCount(a) {
+    return await getDataMoreLessByCriteria('dataUser','countFood', true ,a);
+}
+
+async function getUserLessByCount(a) {
+    return await getDataMoreLessByCriteria('dataUser','countFood', false ,a);
+}
+
+async function getUserMoreByAge(a) {
+    return await getDataMoreLessByCriteria('dataUser','userAge', true ,a);
+}
+
+async function getUserLessByAge(a) {
+    return await getDataMoreLessByCriteria('dataUser','userAge', false ,a);
+}
+
+async function getUserMoreByUid(a) {
+    return await getDataMoreLessByCriteria('dataUser','uid', true ,a);
+}
+
+async function getUserLessByUid(a) {
+    return await getDataMoreLessByCriteria('dataUser','uid', false ,a);
+}
+
+
+
+async function getMakananByNameSearch(a) {
     const result = await pool.query(`
-    SELECT * FROM dataUser
-    WHERE userName = ?
-    `, [a])
-    return result[0]
-}
-
-async function getUserByCount(a){
-    var result = await pool.query(`
-    SELECT * FROM dataUser
-    WHERE countFood = ?
-    `, [a])
-    if (result[0].length == 0){
-        return blankUser
+      SELECT * FROM kulinerNangor
+      WHERE foodName LIKE '%${a}%'
+      `);
+    if (result[0].length === 0) {
+      return [blankMakanan];
     }
-    return result[0]
+    return result[0];
 }
-
-async function getUserLessByCount(a){
-    var result = await pool.query(`
-    SELECT * FROM dataUser
-    WHERE countFood <= ?
-    `, [a])
-    if (result[0].length == 0){
-        return blankUser
+  
+async function getMakananByRatingSearch(a) {
+    const result = await pool.query(`
+      SELECT * FROM kulinerNangor
+      WHERE rating LIKE '${a}%'
+      `);
+    if (result[0].length === 0) {
+      return [blankMakanan];
     }
-    return result[0]
-}
-
-async function getUserMoreByCount(a){
-    var result = await pool.query(`
-    SELECT * FROM dataUser
-    WHERE countFood >= ?
-    `, [a])
-    if (result[0].length == 0){
-        return blankUser
-    }
-    return result[0]
+    return result[0];
 }
 
 module.exports = {
+    getAllMakanan,
     getMakananById,
     getMakananByName,
     getMakananByRating,
     getMakananByType,
+    getMakananByNameSearch,
+    getMakananByRatingSearch,
     getUserByUid,
-    getUserByName,
     getUserByCount,
-    getUserLessByCount,
     getUserMoreByCount,
+    getUserLessByCount,
+    getUserMoreByUid,
+    getUserLessByUid,
+    getUserMoreByAge,
+    getUserLessByAge,
 }
