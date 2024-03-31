@@ -76,6 +76,10 @@ async function getUserByUid(a){
     return await getDataByCriteria('dataUser', 'uid', a)
 }
 
+async function getUserByName(a){
+    return await getDataByCriteria('dataUser', 'userName', a)
+}
+
 async function getUserByCount(a) {
     return await getDataByCriteria('dataUser','countFood', a)
 }
@@ -104,6 +108,14 @@ async function getDataMoreLessByCriteria(table, column, isGreaterThan, value) {
     return result[0];
 }
 
+async function getMakananMoreByRating(a) {
+    return await getDataMoreLessByCriteria('kulinerNangor','rating', true ,a);
+}
+
+async function getMakananLessByRating(a) {
+    return await getDataMoreLessByCriteria('kulinerNangor','rating', false ,a);
+}
+
 async function getUserMoreByCount(a) {
     return await getDataMoreLessByCriteria('dataUser','countFood', true ,a);
 }
@@ -126,6 +138,14 @@ async function getUserMoreByUid(a) {
 
 async function getUserLessByUid(a) {
     return await getDataMoreLessByCriteria('dataUser','uid', false ,a);
+}
+
+async function getUserMoreByRating(a) {
+    return await getDataMoreLessByCriteria('dataUser','rating', true ,a);
+}
+
+async function getUserLessByRating(a) {
+    return await getDataMoreLessByCriteria('dataUser','rating', false ,a);
 }
 
 
@@ -162,10 +182,15 @@ module.exports = {
     getMakananByRatingSearch,
     getUserByUid,
     getUserByCount,
+    getUserByName,
     getUserMoreByCount,
     getUserLessByCount,
     getUserMoreByUid,
     getUserLessByUid,
     getUserMoreByAge,
     getUserLessByAge,
+    getMakananLessByRating,
+    getMakananMoreByRating,
+    getUserMoreByRating,
+    getUserLessByRating
 }
