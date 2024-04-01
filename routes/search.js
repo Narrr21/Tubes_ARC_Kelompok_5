@@ -8,8 +8,11 @@ router
         res.render('search/index')
     })
     .post(async (req, res) => {
-        const makanan = await db.getAllMakanan()
+        const searchBy = req.body.searchBy
+        const sortBy = req.body.sortBy
         const searchInput = req.body.search
-        res.render('search/display', {data: makanan, search: searchInput})
+        var makananFilter = await db.getDataBySearch('kulinerNangor', searchBy, searchInput)
+        var makananUrut = await db.sortDataByCriteria('kulinerNangor', sortBy, 'ASC', makananFilter[0])
+        res.render('search/display', {data: makananUrut, search: searchInput})
     })
 module.exports = router
