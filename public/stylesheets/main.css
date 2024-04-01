@@ -16,3 +16,60 @@
 body {
     background: linear-gradient(to right, var(--color-background-dark), var(--color-background-light));
 }
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.inner-container {
+    margin: 0 2rem;
+}
+
+/* SEARCH */
+/* index */
+/* display */
+.search-display-container{
+    position: relative;
+    display: flex;
+}
+.search-display-card{
+    position: relative;
+    width: 15rem;
+    border-style: groove;
+}
+.search-display-card img{
+    justify-self: left;
+    width: 90%;
+    margin: 5%;
+    height: auto;
+    height: 12rem;
+}
+
+.search-display-desc{
+    justify-self: right;
+    width: max-content;
+    height: min-content;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.search-display-desc div{
+    height: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: left;
+}
+
+.search-display-desc div label{
+    justify-self: left;
+    width: 40%;
+}
+
+.search-display-desc div p{
+    margin: 0%;
+    width: 60%;
+    justify-content: center;
+}

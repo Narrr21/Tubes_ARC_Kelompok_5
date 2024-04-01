@@ -8,11 +8,26 @@ router
         res.render('search/index')
     })
     .post(async (req, res) => {
-        const searchBy = req.body.searchBy
-        const sortBy = req.body.sortBy
-        const searchInput = req.body.search
-        var makananFilter = await db.getDataBySearch('kulinerNangor', searchBy, searchInput)
-        var makananUrut = await db.sortDataByCriteria('kulinerNangor', sortBy, 'ASC', makananFilter[0])
-        res.render('search/display', {data: makananUrut, search: searchInput})
+        if (req.body.all) {
+            var makanan = await db.getAllData('kulinerNangor')
+        } else{
+            if (req.body.search )  {
+                var searchInput = req.body.search
+            } else {searchInput = '%'}
+            if (req.body.searchBy )  {
+                var searchBy = req.body.searchBy
+            } else {searchBy = 'kulinerId'}
+            if (req.body.sortBy )  {
+                var sortBy = req.body.sortBy
+            } else {sortBy = 'kulinerId'}
+            if (req.body.foodOrDrink )  {
+                var jenis = req.body.foodOrDrink
+            } else {jenis = '%'}
+            if (req.body.order){
+                var order = req.body.order
+            } else {order = 'DESC'}
+            var makanan = await db.searchMakanan('kulinerNangor', searchBy, jenis, sortBy, order, searchInput)
+        }
+        res.render('search/display', {data: makanan})
     })
 module.exports = router

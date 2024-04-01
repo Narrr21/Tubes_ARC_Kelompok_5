@@ -73,33 +73,15 @@ async function getDataBySearch(table, column, value) {
     return check(result, table)
 }
 
-async function sortDataByCriteria(table, column, order, value) {
-    try {
-        createTempTable(table, value)
-        const result = await pool.query(`
-        SELECT * FROM temp ORDER BY ${column} ${order};
-        `)
-        return check(result, table)
-    } catch (error) {
-        createTempTable(table, value)
-    } finally {
-        pool.query(`DROP TABLE temp`)
-    }
+async function searchMakanan(table, columnSearch, jenis,  columnSort, order, searchInput){
+    var result = await pool.query(`
+    SELECT * FROM ${table} 
+    WHERE ${columnSearch} LIKE '%${searchInput}%'
+    AND foodOrDrink LIKE '%${jenis}%'
+    ORDER BY ${columnSort} ${order};
+    `)
+    return check(result, table)
 }
-
-async function createTempTable(table, value) {
-    try {
-        await pool.query(`CREATE TABLE temp LIKE ${table}`)
-        const query = `INSERT INTO temp SET ?`;
-        await pool.query(query, value, (err, result) => {
-        if (err) {
-            throw err;
-        }
-    })
-    } catch {
-        createTempTable(table, value)
-    }
-  };
 
 module.exports = {
     blankMakanan,
@@ -107,7 +89,7 @@ module.exports = {
     getDataByCriteria,
     getDataBySearch,
     getDataMoreLessByCriteria,
-    sortDataByCriteria
+    searchMakanan
 }
 
 // async function getMakananById(a){

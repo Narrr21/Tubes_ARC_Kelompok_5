@@ -2,24 +2,36 @@
 <form action="/search" method="post">
     <section class="search-input-text">
         <label>Search: </label>
-        <input class="search" type="text" name="search">
+        <input class="search" type="text" name="search"><br>
     </section>
     <section class="search-input-filter">
         <article class="search-filter-searchBy">
+            <label for="searchBy">Search By :</label>
             <input type="radio" name="searchBy" value="foodName">nama
             <input type="radio" name="searchBy" value="kulinerId">id
             <input type="radio" name="searchBy" value="rating">rating
         </article>
         <article class="search-filter-type">
+            <label for="foodOrDrink">Jenis :</label>
+            <input type="radio" name="foodOrDrink" value="%">All
             <input type="radio" name="foodOrDrink" value="makanan">makanan
             <input type="radio" name="foodOrDrink" value="minuman">minuman
         </article>
         <article class="search-filter-sortBy">
+            <label for="searchBy">Sort By :</label>
             <input type="radio" name="sortBy" value="kulinerId">default
             <input type="radio" name="sortBy" value="rating">rating
             <input type="radio" name="sortBy" value="foodName">nama
         </article>
+        <article class="search-order">
+            <label for="order">Ascending :</label>
+            <input type="checkbox" name="order" value="ASC"> 
+        </article>
     </section>
   <button class="btn-primary" type="reset">Reset</button>
   <button class="btn-primary" type="submit">Search</button>
-</form>
+</form> <br> <br>
+
+<form action="/search" method="post">
+    <button class="btn-primary" type="submit" name="all" value="all">Show All</button>
+</form> 
