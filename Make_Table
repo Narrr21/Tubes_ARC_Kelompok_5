@@ -14,14 +14,24 @@ VALUES
 
 SELECT * FROM account;
 
+-- countFood nanti diganti aja pake jumlah reviewnya
+-- contoh :
+-- SELECT
+-- COUNT(userId)
+-- FROM
+--     review;
 CREATE TABLE dataUser (
     uid INTEGER PRIMARY KEY ,
-    userName VARCHAR(25) NOT NULL,
+    userName VARCHAR(255) NOT NULL,
     profilePicture VARCHAR(255) NOT NULL,
     userAge INTEGER NOT NULL,
-    countFood INTEGER NOT NULL,
+    -- countFood INTEGER NOT NULL,
     FOREIGN KEY (uid) REFERENCES account(uid)
 );
+
+DROP TABLE 'dataUser'
+
+DROP TABLE `account`
 
 INSERT INTO dataUser (uid, userName, profilePicture, userAge, countFood)
 VALUES
