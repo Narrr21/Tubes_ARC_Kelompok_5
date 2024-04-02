@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const User = require('../controller/auth');
 
 const requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
@@ -9,6 +8,7 @@ const requireAuth = (req, res, next) => {
         console.log(err.message);
         res.redirect('/auth/login');
       } else {
+        req.decodedCookies = decodedToken
         console.log(decodedToken);
         next();
       }

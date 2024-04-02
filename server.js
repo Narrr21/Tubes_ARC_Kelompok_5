@@ -13,7 +13,7 @@ const authRouter = require('./routes/auth')
 
 const cookieParser = require('cookie-parser');
 const { requireAuth } = require('./middleware/authMiddleware')
-const { userFindById } = require('./controller/auth')
+const { userFindById,accountFindById } = require('./controller/auth')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -38,7 +38,16 @@ app.use((err, req, res, next) => {
 
 
 app.get('/',requireAuth, async (req, res) => {
-    res.render('index')
+// Ini edit aja gpp, ini buat ngetes doang
+    try {
+        const x = await accountFindById(req.decodedCookies.id)
+        res.render('index', {email: x[0].email})
+    }
+    catch(err){
+        console.log(err)
+    }
+    res.statusCode = 400
+    res.end()
 })
 
 app.listen(process.env.PORT || 3000)
