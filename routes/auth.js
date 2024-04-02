@@ -17,7 +17,14 @@ router
     })
 
     .get('/register',async (req,res) =>{
-        res.render('register/index',{message:""})
+        const token = req.cookies.jwt;
+        if (token) {
+            res.status(200).redirect('../');
+        }
+        else{
+            res.render('register/index',{message:""})
+
+        }
     })
     .post('/register',async (req,res) =>{
         await auth.register(req,res)
