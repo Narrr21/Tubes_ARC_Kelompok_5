@@ -109,7 +109,7 @@ async function logout(req,res){
 
 
 async function userFindById(uid){
-    var user =  pool.query(`
+    var user =  await pool.query(`
     SELECT
         *
     FROM
@@ -120,7 +120,7 @@ async function userFindById(uid){
 }
 
 async function accountFindById(uid){
-    var account =  pool.query(`
+    var account =  await pool.query(`
     SELECT
         *
     FROM
