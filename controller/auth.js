@@ -50,6 +50,9 @@ async function register(req,res) {
         // console.log(checkEmail[0])
         res.status(400).render('register',{message:"That username is already in use"});
     }
+    else if(username.toLowerCase()=="edit"){
+        res.status(400).render('register',{message:"Invalid username"});
+    }
     else if(pw!=pwconfirm){
         // console.log(pw,pwconfirm)
         res.status(400).render('register',{message:"Password don't match"});
@@ -85,7 +88,6 @@ async function register(req,res) {
 }
 
 
-// TODO : Login
 async function login(req,res){
     const { email, pw } = req.body;
     try {
