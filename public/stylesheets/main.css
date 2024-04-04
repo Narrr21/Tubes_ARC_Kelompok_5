@@ -28,6 +28,63 @@ body {
     margin: 0 2rem;
 }
 
+/* HOME */
+/* index */
+.home-container{
+    position: relative;
+    display: flex;
+}
+.home-card{
+    position: relative;
+    width: 15rem;
+}
+.home-card img{
+    justify-self: center;
+    width: 90%;
+    padding: 5%;
+    margin: 5%;
+    height: auto;
+    height: 12rem;
+}
+
+.home-card-desc{
+    justify-self: center;
+    width: max-content;
+    height: min-content;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    opacity: 0%;
+    position: absolute;
+}
+
+.home-card-desc div{
+    height: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: left;
+}
+
+.home-card-desc div label{
+    justify-self: left;
+    width: 40%;
+}
+
+.home-card-desc div p{
+    margin: 0%;
+    width: 60%;
+    justify-content: center;
+}
+
+.home-card:hover{
+    background-color: var(--color-background-dark);
+    .home-card-desc{
+        position: relative;
+        opacity: 100%;
+    }
+}
+
+
 /* SEARCH */
 /* index */
 /* display */
@@ -38,23 +95,25 @@ body {
 .search-display-card{
     position: relative;
     width: 15rem;
-    border-style: groove;
 }
 .search-display-card img{
-    justify-self: left;
+    justify-self: center;
     width: 90%;
+    padding: 5%;
     margin: 5%;
     height: auto;
     height: 12rem;
 }
 
 .search-display-desc{
-    justify-self: right;
+    justify-self: center;
     width: max-content;
     height: min-content;
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+    opacity: 0%;
+    position: absolute;
 }
 
 .search-display-desc div{
@@ -73,4 +132,12 @@ body {
     margin: 0%;
     width: 60%;
     justify-content: center;
+}
+
+.search-display-card:hover{
+    background-color: var(--color-background-dark);
+    .search-display-desc{
+        position: relative;
+        opacity: 100%;
+    }
 }

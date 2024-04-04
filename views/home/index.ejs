@@ -1,1 +1,21 @@
-<h2>Home</h2>
+<section class="home-container">
+    <% for (let i = 0; i < data.length; i++) {%>
+        <article class="home-card">
+            <img src="<%= data[i]["images"]%>">
+            <div class="home-card-desc">
+                <div>
+                    <label>id </label>
+                    <p>: <%= data[i]["kulinerId"]%></p>
+                </div>
+                <div>
+                    <label>Nama </label>
+                    <p>: <%= data[i]["foodName"]%></p>
+                </div>
+                <div>
+                    <label>Rating </label>
+                    <p>: <%= data[i]["rating"]%></p>
+                </div>
+            </div>
+        </article>
+    <% } %>
+</section>
