@@ -25,7 +25,6 @@ CREATE TABLE dataUser (
     userName VARCHAR(255) NOT NULL,
     profilePicture VARCHAR(255) NOT NULL,
     userAge INTEGER NOT NULL,
-    -- countFood INTEGER NOT NULL,
     FOREIGN KEY (uid) REFERENCES account(uid)
 );
 
