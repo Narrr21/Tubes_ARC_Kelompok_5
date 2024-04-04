@@ -25,10 +25,11 @@ CREATE TABLE dataUser (
     userName VARCHAR(255) NOT NULL,
     profilePicture VARCHAR(255) NOT NULL,
     userAge INTEGER NOT NULL,
+    bio VARCHAR(255),
     FOREIGN KEY (uid) REFERENCES account(uid)
 );
 
-DROP TABLE 'dataUser'
+DROP TABLE `dataUser`
 
 DROP TABLE `account`
 
@@ -55,19 +56,25 @@ VALUES
 SELECT * FROM kulinerNangor;
 
 CREATE TABLE review (
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
     userId INTEGER,
     kulinerId INTEGER,
     reviewText TEXT,
     rating INTEGER,
-    reviewDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    reviewDate DATE DEFAULT CURRENT_DATE,
     FOREIGN KEY (userId) REFERENCES dataUser(uid),
-    FOREIGN KEY (kulinerId) REFERENCES kulinerNangor(kulinerId)
+    FOREIGN KEY (kulinerId) REFERENCES kulinerNangor(kulinerId),
+    PRIMARY KEY(userId, kulinerId)
 );
+
+DROP TABLE review
 
 INSERT INTO review (userId, kulinerId, reviewText, rating)
 VALUES
-(1, 1, 'tes review', '9')
+(1, 1, 'kucing gorengnya enak', '9')
+
+INSERT INTO review (userId, kulinerId, reviewText, rating)
+VALUES
+(1, 2, 'sandal bakarnya enak banget', '69')
 
 
 SELECT * FROM review;
