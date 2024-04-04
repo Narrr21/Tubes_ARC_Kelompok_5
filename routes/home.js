@@ -10,9 +10,12 @@ router
     })
 
 router
-    .route('/info')
+    .route('/info/:uid')
     .get(async (req, res) => {
-        res.render('home/info')
+        tag = req.params.uid
+        makanan = await db.getDataByCriteria('kulinerNangor','kulinerId',tag)
+        res.render('home/information', {data:makanan})
     })
 
 module.exports = router
+

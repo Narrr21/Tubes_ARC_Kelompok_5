@@ -1,2 +1,26 @@
-<%= data %>
-<img src="<%= data %>" alt="">
+<section class="info-container">
+    <article class="info-data">
+        <img src="<%= data[0]['images']%>" alt="">
+        <div class="info-desc">
+            <div>
+                <label>id </label>
+                <p>: <%= data[0]["kulinerId"]%></p>
+            </div>
+            <div>
+                <label>Nama </label>
+                <p>: <%= data[0]["foodName"]%></p>
+            </div>
+            <div>
+                <label>Jenis </label>
+                <p>: <%= data[0]["foodOrDrink"]%></p>
+            </div>
+            <div>
+                <label>Rating </label>
+                <p>: <%= data[0]["rating"]%></p>
+            </div>
+        </div>
+    </article>
+    <article class="info-comment">
+        <p>Ini comment</p>
+    </article>
+</section>

@@ -83,7 +83,56 @@ body {
     }
 }
 
+/* Information */
+.info-container{
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.info-data{
+    display: flex;
+    border-style: dashed;
+    width: 50%;
+    align-items: center;
+}
+
+
+.info-data img{
+    width: 30rem;
+}
+
+.info-comment{
+    border-style: dashed;
+    width: 50%;
+}
+
+.info-desc{
+    border-style: dashed;
+    justify-self: center;
+    width: 90%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.info-desc div{
+    height: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: left;
+}
+
+.info-desc div label{
+    justify-self: left;
+    width: 40%;
+    font-size: smaller;
+}
+
+.info-desc div p{
+    margin: 0%;
+    width: 60%;
+    justify-content: center;
+    font-size: smaller;
+}
 /* SEARCH */
 /* index */
 /* display */
