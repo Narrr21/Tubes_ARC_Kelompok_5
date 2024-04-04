@@ -33,9 +33,9 @@ DROP TABLE `dataUser`
 
 DROP TABLE `account`
 
-INSERT INTO dataUser (uid, userName, profilePicture, userAge, countFood)
+INSERT INTO dataUser (uid, userName, profilePicture, userAge, bio)
 VALUES
-('1', 'tes name', 'profile picture tes', '12', '10');
+('1', 'tes name', 'profile picture tes', '12', 'tes bio');
 
 SELECT * FROM dataUser;
 
@@ -70,11 +70,7 @@ DROP TABLE review
 
 INSERT INTO review (userId, kulinerId, reviewText, rating)
 VALUES
-(1, 1, 'kucing gorengnya enak', '9')
-
-INSERT INTO review (userId, kulinerId, reviewText, rating)
-VALUES
-(1, 2, 'sandal bakarnya enak banget', '69')
-
+(1, 1, 'kucing gorengnya enak', '9'),
+(1, 2, 'sandal bakarnya enak banget', '69');
 
 SELECT * FROM review;
