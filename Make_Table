@@ -68,5 +68,4 @@ INSERT INTO review (userId, hostId, reviewText, rating)
 VALUES
 (1, 1, 'tes review', '9')
 
-
 SELECT * FROM review;

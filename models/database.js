@@ -73,11 +73,11 @@ async function getDataBySearch(table, column, value) {
     return check(result, table)
 }
 
-async function searchMakanan(table, columnSearch, jenis,  columnSort, order, searchInput){
+async function searchMakanan(table, columnSearch, price,  columnSort, order, searchInput){
     var result = await pool.query(`
     SELECT * FROM ${table} 
     WHERE ${columnSearch} LIKE '%${searchInput}%'
-    AND foodOrDrink LIKE '%${jenis}%'
+    AND price ${price}
     ORDER BY ${columnSort} ${order};
     `)
     return check(result, table)
