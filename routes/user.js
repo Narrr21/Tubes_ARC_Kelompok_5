@@ -32,7 +32,13 @@ router
 router
     .route('/:username')
     .get(async (req, res) => {
-        var decodedId = await user.getIdfromCookies(req);
+        const token = req.cookies.jwt;
+        if(token){
+            var decodedId = await user.getIdfromCookies(req);
+        }
+        else{
+            var decodedId = null;
+        }
         var username = req.params.username
         var uname = await user.getUserByUsername(username)
         if (req.decodedCookies){
