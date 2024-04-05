@@ -42,7 +42,6 @@ router
             } else {order = 'ASC'}
             var host = await db.searchMakanan('hosting', searchBy, price, sortBy, order, searchInput)
         }
-        console.log(host, price)
         res.render('search/display', {data: host})
     })
 module.exports = router
