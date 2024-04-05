@@ -84,7 +84,6 @@ async function searchMakanan(table, columnSearch, jenis,  columnSort, order, sea
 }
 
 module.exports = {
-    blankMakanan,
     getAllData,
     getDataByCriteria,
     getDataBySearch,
