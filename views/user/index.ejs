@@ -1,7 +1,7 @@
 <img src="../../storage/Images/profilePicture/<%= user.profilePicture %>.png">
 <h3> <%= user.userName %> </h3>
 <p><%= user.bio %></p>
-<% if (logged.userName == user.userName) { %>
+<% if (locals.userName == user.userName) { %>
     <form action="/user/edit" method="get">
         <button> Edit Profile </button>
     </form>
