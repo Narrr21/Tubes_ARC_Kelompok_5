@@ -95,9 +95,9 @@ async function getUserReview(id){
     SELECT
         *
     FROM
-        kulinerNangor,review
+        hosting,review
     WHERE
-        kulinerNangor.kulinerId = review.kulinerId
+        hosting.hostId = review.hostId
         AND
         review.userId = ${id}`);
     return userReview[0]
