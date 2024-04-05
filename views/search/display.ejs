@@ -2,23 +2,27 @@
     <button class="btn-primary">Back</button>
 </a><br><br>
 <section class="search-display-container">
-    <% for (let i = 0; i < data.length; i++) {%>
-        <article class="search-display-card">
-            <img src="<%= data[i]["images"]%>">
-            <div class="search-display-desc">
-                <div>
-                    <label>id </label>
-                    <p>: <%= data[i]["kulinerId"]%></p>
+    <% if (data[0]["kulinerId"] != 'Nothing Found') { %>
+        <% for (let i = 0; i < data.length; i++) {%>
+            <article class="search-display-card">
+                <img src="<%= data[i]["images"]%>">
+                <div class="search-display-desc">
+                    <div>
+                        <label>id </label>
+                        <p>: <%= data[i]["kulinerId"]%></p>
+                    </div>
+                    <div>
+                        <label>Nama </label>
+                        <p>: <%= data[i]["foodName"]%></p>
+                    </div>
+                    <div>
+                        <label>Rating </label>
+                        <p>: <%= data[i]["rating"]%></p>
+                    </div>
                 </div>
-                <div>
-                    <label>Nama </label>
-                    <p>: <%= data[i]["foodName"]%></p>
-                </div>
-                <div>
-                    <label>Rating </label>
-                    <p>: <%= data[i]["rating"]%></p>
-                </div>
-            </div>
-        </article>
+            </article>
+        <% } %>
+    <% } else {%>
+        <h2>Nothing Found</h2>
     <% } %>
 </section>

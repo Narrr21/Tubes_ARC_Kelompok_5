@@ -136,6 +136,40 @@ body {
 }
 /* SEARCH */
 /* index */
+.search-input-text{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.search-input-text label{
+    width: 15%;
+    margin-right: 5%;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+.search-input-text .search{
+    height: 40px;
+    width: 85%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    outline: none;
+}
+
+.search-input-filter article{
+    display: flex;
+    height: min-content;
+}
+.search-input-filter label{
+    width: 20%;
+    align-self: center;
+}
+.search-input-filter p{
+    align-self: center;
+    margin-right: 2%;
+}
 /* display */
 .search-display-container{
     position: relative;

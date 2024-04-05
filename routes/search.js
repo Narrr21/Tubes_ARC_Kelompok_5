@@ -11,12 +11,23 @@ router
         if (req.body.all) {
             var makanan = await db.getAllData('kulinerNangor')
         } else{
-            if (req.body.search )  {
+            if (req.body.search && req.body.searchBy)  {
+                if (req.body.search )  {
+                    var searchInput = req.body.search
+                } else {searchInput = '%'}
+                if (req.body.searchBy )  {
+                    var searchBy = req.body.searchBy
+                } else {searchBy = 'foodName'}
+            } else if (req.body.search)  {
                 var searchInput = req.body.search
-            } else {searchInput = '%'}
-            if (req.body.searchBy )  {
+                var searchBy = 'foodName'
+            } else if (req.body.searchBy) {
                 var searchBy = req.body.searchBy
-            } else {searchBy = 'kulinerId'}
+                var searchInput = '%'
+            } else {
+                var searchBy = 'foodName'
+                var searchInput = '%'
+            }
             if (req.body.sortBy )  {
                 var sortBy = req.body.sortBy
             } else {sortBy = 'kulinerId'}
@@ -25,7 +36,7 @@ router
             } else {jenis = '%'}
             if (req.body.order){
                 var order = req.body.order
-            } else {order = 'DESC'}
+            } else {order = 'ASC'}
             var makanan = await db.searchMakanan('kulinerNangor', searchBy, jenis, sortBy, order, searchInput)
         }
         res.render('search/display', {data: makanan})

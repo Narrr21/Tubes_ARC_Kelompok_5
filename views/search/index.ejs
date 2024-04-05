@@ -1,33 +1,36 @@
-<h2>Search</h2>
 <form action="/search" method="post">
     <section class="search-input-text">
-        <label>Search: </label>
+        <label>Search here </label>
         <input class="search" type="text" name="search"><br>
     </section>
     <section class="search-input-filter">
         <article class="search-filter-searchBy">
-            <label for="searchBy">Search By :</label>
-            <input type="radio" name="searchBy" value="foodName">nama
-            <input type="radio" name="searchBy" value="kulinerId">id
-            <input type="radio" name="searchBy" value="rating">rating
+            <label for="searchBy">Search By</label>
+            <p>:</p>
+            <input type="radio" name="searchBy" value="foodName"><p>Nama</p>
+            <input type="radio" name="searchBy" value="kulinerId"><p>Id</p>
+            <input type="radio" name="searchBy" value="rating"><p>Rating</p>
         </article>
         <article class="search-filter-type">
-            <label for="foodOrDrink">Jenis :</label>
-            <input type="radio" name="foodOrDrink" value="%">All
-            <input type="radio" name="foodOrDrink" value="makanan">makanan
-            <input type="radio" name="foodOrDrink" value="minuman">minuman
+            <label for="foodOrDrink">Jenis</label>
+            <p>:</p>
+            <input type="radio" name="foodOrDrink" value="%"><p>All</p>
+            <input type="radio" name="foodOrDrink" value="makanan"><p>Makanan</p>
+            <input type="radio" name="foodOrDrink" value="minuman"><p>Minuman</p>
         </article>
         <article class="search-filter-sortBy">
-            <label for="searchBy">Sort By :</label>
-            <input type="radio" name="sortBy" value="kulinerId">default
-            <input type="radio" name="sortBy" value="rating">rating
-            <input type="radio" name="sortBy" value="foodName">nama
+            <label for="searchBy">Sort By</label>
+            <p>:</p>
+            <input type="radio" name="sortBy" value="kulinerId"><p>Default</p>
+            <input type="radio" name="sortBy" value="rating"><p>Rating</p>
+            <input type="radio" name="sortBy" value="foodName"><p>Nama</p>
         </article>
         <article class="search-order">
-            <label for="order">Ascending :</label>
-            <input type="checkbox" name="order" value="ASC"> 
+            <label for="order">Descending</label>
+            <p>:</p>
+            <input type="checkbox" name="order" value="DESC"> 
         </article>
-    </section>
+    </section><br>
   <button class="btn-primary" type="reset">Reset</button>
   <button class="btn-primary" type="submit">Search</button>
 </form> <br> <br>
