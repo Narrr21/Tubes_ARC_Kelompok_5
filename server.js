@@ -10,10 +10,11 @@ const db = require('./models/database')
 const homeRouter = require('./routes/home')
 const searchRouter = require('./routes/search')
 const authRouter = require('./routes/auth')
+const userRouter = require('./routes/user')
 
 const cookieParser = require('cookie-parser');
 const { requireAuth } = require('./middleware/authMiddleware')
-const { userFindById,accountFindById } = require('./controller/auth')
+const { userFindById,accountFindById } = require('./controller/user')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 app.use('/home', homeRouter)
 app.use('/search', searchRouter)
 app.use('/auth',authRouter)
+app.use('/user',userRouter)
 
 
 app.use((err, req, res, next) => {

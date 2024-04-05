@@ -2,7 +2,7 @@
 run this in terminal:
 npm init -y
 npm i express ejs express-ejs-layouts mysql2 dotenv body-parser
-npm i cookie-parser jsonwebtoken bcryptjs
+npm i cookie-parser jsonwebtoken bcryptjs multer
 npm i --save-dev nodemon
 
 (make your own database that can run locally, because this website is run locally for now)

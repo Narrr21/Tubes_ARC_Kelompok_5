@@ -25,17 +25,17 @@ CREATE TABLE dataUser (
     userName VARCHAR(255) NOT NULL,
     profilePicture VARCHAR(255) NOT NULL,
     userAge INTEGER NOT NULL,
-    -- countFood INTEGER NOT NULL,
+    bio VARCHAR(255),
     FOREIGN KEY (uid) REFERENCES account(uid)
 );
 
-DROP TABLE 'dataUser'
+DROP TABLE `dataUser`
 
 DROP TABLE `account`
 
-INSERT INTO dataUser (uid, userName, profilePicture, userAge, countFood)
+INSERT INTO dataUser (uid, userName, profilePicture, userAge, bio)
 VALUES
-('1', 'tes name', 'profile picture tes', '12', '10');
+('1', 'tes name', 'profile picture tes', '12', 'tes bio');
 
 SELECT * FROM dataUser;
 
@@ -54,7 +54,6 @@ VALUES
 SELECT * FROM hosting;
 
 CREATE TABLE review (
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
     userId INTEGER,
     hostId INTEGER,
     reviewText TEXT,
@@ -62,10 +61,12 @@ CREATE TABLE review (
     reviewDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (userId) REFERENCES dataUser(uid),
     FOREIGN KEY (hostId) REFERENCES hosting(hostId)
+    PRIMARY KEY (userId, hostId)
 );
 
 INSERT INTO review (userId, hostId, reviewText, rating)
 VALUES
 (1, 1, 'tes review', '9')
+
 
 SELECT * FROM review;

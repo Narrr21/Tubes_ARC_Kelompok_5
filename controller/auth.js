@@ -25,7 +25,7 @@ const createToken = (id) => {
 // Untuk Encryption passwordnya masih in progress, tapi ini udah ngeadd account + dataUser
 async function register(req,res) {
     // console.log(req.body);
-    const {email,pw,pwconfirm} = req.body;
+    const {email,username,pw,pwconfirm} = req.body;
     var checkEmail = await pool.query(`
     SELECT
         email
@@ -33,11 +33,25 @@ async function register(req,res) {
         account
     WHERE 
         email = ?`,email)
+    var checkUsername = await pool.query(`
+        SELECT
+            username
+        FROM
+            dataUser
+        WHERE 
+            username = ?`,username)
     // console.log(checkEmail[0])
 
     if(checkEmail[0].length>0){
         // console.log(checkEmail[0])
         res.status(400).render('register',{message:"That email is already in use"});
+    }
+    else if(checkUsername[0].length>0){
+        // console.log(checkEmail[0])
+        res.status(400).render('register',{message:"That username is already in use"});
+    }
+    else if(username.toLowerCase()=="edit"){
+        res.status(400).render('register',{message:"Invalid username"});
     }
     else if(pw!=pwconfirm){
         // console.log(pw,pwconfirm)
@@ -67,14 +81,13 @@ async function register(req,res) {
                 userAge
             )
             VALUES
-                (?, ?, ?, ?);`, [uid[0][0]['uid'], email, 'DEFAULTPIC', '0']);
+                (?, ?, ?, ?);`, [uid[0][0]['uid'], username, 'DEFAULTPIC', '0']);
 
         res.status(201).render('register',{message:'Email Registered!'});
     }
 }
 
 
-// TODO : Login
 async function login(req,res){
     const { email, pw } = req.body;
     try {
@@ -108,34 +121,8 @@ async function logout(req,res){
 
 
 
-async function userFindById(uid){
-    var user =  await pool.query(`
-    SELECT
-        *
-    FROM
-        dataUser
-    WHERE
-        uid = '${uid}'`)
-    return user[0];
-}
-
-async function accountFindById(uid){
-    var account =  await pool.query(`
-    SELECT
-        *
-    FROM
-        account
-    WHERE
-        uid = '${uid}'`)
-    return account[0];
-}
-
-
-
 module.exports = {
     register,
     login,
     logout,
-    userFindById,
-    accountFindById
 }
