@@ -32,7 +32,7 @@ router
                 var sortBy = req.body.sortBy
             } else {sortBy = 'hostId'}
             if (req.body.price){
-                gratis = req.body.price == "0"
+                gratis = (req.body.price == "0")
                 if (gratis){
                     var price = "= 0"
                 } else {var price = "> 0"}
@@ -42,6 +42,7 @@ router
             } else {order = 'ASC'}
             var host = await db.searchMakanan('hosting', searchBy, price, sortBy, order, searchInput)
         }
+        console.log(host, price)
         res.render('search/display', {data: host})
     })
 module.exports = router
