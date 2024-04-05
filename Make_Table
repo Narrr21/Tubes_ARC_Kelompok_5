@@ -76,7 +76,7 @@ CREATE TABLE review (
 
 INSERT INTO review (userId, hostId, reviewText, rating)
 VALUES
-(4, 1, 'tes review', '9')
+(1, 1, 'tes review', '9')
 
 
 SELECT * FROM review;
