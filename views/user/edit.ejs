@@ -1,0 +1,24 @@
+<h2>Edit Profile</h2>
+<form action="/user/edit" method="post" enctype="multipart/form-data">
+    <h3>Profile Picture</h3>
+    <img id="edit-img-preview" src="../storage/Images/profilePicture/<%= user.profilePicture %>.png">
+    <br>
+    <input id="edit-img-upload" type="file" name="profilepicture" accept=".png,.jpg,.jpeg" onchange="imagePreview(event)">
+    <h3>Bio</h3>
+    <textarea name="bio" maxlength="255" rows="10" cols="50"><%= user.bio %></textarea>
+    <br><br>
+    <button type="submit"> Save </button>
+</form>
+
+
+
+<script>
+    function imagePreview(event) {
+      var reader = new FileReader();
+      reader.onload = function(){
+        var output = document.getElementById('edit-img-preview');
+        output.src = reader.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    };
+  </script>
