@@ -1,20 +1,27 @@
-<img src="../../storage/Images/profilePicture/<%= user.profilePicture %>.png">
-<h3> <%= user.userName %> </h3>
-<p><%= user.bio %></p>
-<% if (locals.userName == user.userName) { %>
-    <form action="/user/edit" method="get">
-        <button> Edit Profile </button>
-    </form>
+<section class="user-container">
+  <article class="user-data">
+    <img src="../../storage/Images/profilePicture/<%= user.profilePicture %>.png">
+    <h3> <%= user.userName %> </h3>
+    <p><%= user.bio %></p>
+    <% if (locals.userName == user.userName) { %>
+        <form action="/user/edit" method="get">
+            <button class="btn-primary"> Edit Profile </button>
+        </form>
+    <% } %>
+  </article>
+  <article class="user-review">
+    <h3 class="user-total-review"><%=data.length%> total review</h3>
+    <% for (let i = 0; i < data.length; i++) {%>
+      <div class="user-review-data">
+          <img src="<%= data[i].images%>">
+          <div class="user-review-desc">
+            <h3> <%= data[i].hostName %></h3>
+            <h4> Rating : <%= data[i].rating %>/10</h4>
+            <p><%= data[i].reviewDate.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' })%></p>
+            <p>"<%= data[i].reviewText%>"</p>
+          </div>
+      </div>
   <% } %>
-<br>
-<br>
-<h3><%=data.length%> total review</h3>
-  <% for (let i = 0; i < data.length; i++) {%>
-    <article>
-        <img src="<%= data[i].images%>">
-        <h3> <%= data[i].hostName %></h3>
-        <h4> Rating : <%= data[i].rating %>/10</h4>
-        <p><%= data[i].reviewDate.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' })%></p>
-        <p>"<%= data[i].reviewText%>"</p>
-    </article>
-<% } %>
+  </article>
+</section>
+

@@ -234,3 +234,51 @@ body {
         opacity: 100%;
     }
 }
+
+/* USER */
+/* index */
+.user-container {
+    display: flex;
+}
+.user-data{
+    border-style: solid;
+    width: 30%;
+}
+
+.user-data img{
+    padding: 5%;
+    width: 100%;
+    border-style:dotted ;
+}
+
+.user-data h3{
+    text-align: center;
+}
+
+.user-data form{
+    width: 70%;
+    margin-left: 15%;
+}
+.user-data button{
+    width: 100%;
+}
+
+.user-review-data{
+    display: flex;
+}
+.user-review-data img{
+    width: 30%;
+}
+.user-review-desc{
+    border-style: dotted;
+    width: 68%;
+    margin-left: 2%;
+}
+.user-review{
+    border-style: groove;
+    width: 70%;
+}
+.user-total-review {
+    width: 100%;
+    text-align: center;
+}
