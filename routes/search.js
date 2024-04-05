@@ -32,7 +32,7 @@ router
                 var sortBy = req.body.sortBy
             } else {sortBy = 'hostId'}
             if (req.body.price){
-                gratis = req.body.price == "0"
+                gratis = (req.body.price == "0")
                 if (gratis){
                     var price = "= 0"
                 } else {var price = "> 0"}
