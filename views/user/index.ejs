@@ -2,7 +2,7 @@
   <article class="user-data">
     <img src="../../storage/Images/profilePicture/<%= user.profilePicture %>.png">
     <h3> <%= user.userName %> </h3>
-    <p><%= user.bio %></p>
+    <p class="bio"><%= user.bio %></p>
     <% if (locals.userName == user.userName) { %>
         <form action="/user/edit" method="get">
             <button class="btn-primary"> Edit Profile </button>

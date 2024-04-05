@@ -1,13 +1,17 @@
 <h2>Edit Profile</h2>
-<form action="/user/edit" method="post" enctype="multipart/form-data">
+<form action="/user/edit" method="post" enctype="multipart/form-data" class="user-edit">
+  <article class="edit-picture">
     <h3>Profile Picture</h3>
     <img id="edit-img-preview" src="../storage/Images/profilePicture/<%= user.profilePicture %>.png">
     <br>
     <input id="edit-img-upload" type="file" name="profilepicture" accept=".png,.jpg,.jpeg" onchange="imagePreview(event)">
+  </article>
+  <article class="edit-bio">
     <h3>Bio</h3>
     <textarea name="bio" maxlength="255" rows="10" cols="50"><%= user.bio %></textarea>
     <br><br>
-    <button type="submit"> Save </button>
+    <button class="btn-primary" type="submit"> Save </button>
+  </article>
 </form>
 
 

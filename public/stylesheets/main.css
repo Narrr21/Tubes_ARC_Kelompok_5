@@ -248,16 +248,18 @@ body {
 .user-data img{
     padding: 5%;
     width: 100%;
-    border-style:dotted ;
 }
 
 .user-data h3{
     text-align: center;
 }
-
+.user-data .bio {
+    text-align: center;
+}
 .user-data form{
     width: 70%;
     margin-left: 15%;
+    margin-bottom: 20px;
 }
 .user-data button{
     width: 100%;
@@ -268,17 +270,54 @@ body {
 }
 .user-review-data img{
     width: 30%;
+    padding: 3%;
 }
 .user-review-desc{
-    border-style: dotted;
     width: 68%;
     margin-left: 2%;
 }
 .user-review{
-    border-style: groove;
+    border-style: solid;
     width: 70%;
 }
 .user-total-review {
     width: 100%;
     text-align: center;
+}
+/* edit */
+.user-edit {
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-edit h3{
+    text-align: center;
+}
+
+.edit-picture{
+    width: 50%;
+    border-style: solid;
+}
+
+#edit-img-upload{
+    margin: 5%;
+}
+
+.edit-picture img{
+    width: 100%;
+    padding: 5%;
+}
+
+.edit-bio{
+    width: 50%;
+    border-style: solid;
+}
+
+.edit-bio textarea{
+    width: 90%;
+    height: 50%;
+    margin: 5%;
+}
+.edit-bio button{
+    width: 20%;
+    margin-left: 40%;
 }
