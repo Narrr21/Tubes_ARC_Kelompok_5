@@ -60,7 +60,7 @@ CREATE TABLE review (
     kulinerId INTEGER,
     reviewText TEXT,
     rating INTEGER,
-    reviewDate DATE DEFAULT CURRENT_DATE,
+    reviewDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (userId) REFERENCES dataUser(uid),
     FOREIGN KEY (kulinerId) REFERENCES kulinerNangor(kulinerId),
     PRIMARY KEY(userId, kulinerId)
