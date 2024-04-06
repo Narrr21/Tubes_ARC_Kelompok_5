@@ -12,14 +12,6 @@ INSERT INTO account (email, password)
 VALUES
 ('tes@gmail.com', 'tespass');
 
-SELECT * FROM account;
-
--- countFood nanti diganti aja pake jumlah reviewnya
--- contoh :
--- SELECT
--- COUNT(userId)
--- FROM
---     review;
 CREATE TABLE dataUser (
     uid INTEGER PRIMARY KEY ,
     userName VARCHAR(255) NOT NULL,
@@ -29,15 +21,9 @@ CREATE TABLE dataUser (
     FOREIGN KEY (uid) REFERENCES account(uid)
 );
 
-DROP TABLE `dataUser`
-
-DROP TABLE `account`
-
 INSERT INTO dataUser (uid, userName, profilePicture, userAge, bio)
 VALUES
 ('1', 'tes name', 'profile picture tes', '12', 'tes bio');
-
-SELECT * FROM dataUser;
 
 CREATE TABLE hosting (
 	hostId INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -49,19 +35,17 @@ CREATE TABLE hosting (
 
 INSERT INTO hosting (hostname, price, images, rating)
 VALUES
-('Blue Host', '40.000', 'https://tse3.mm.bing.net/th?id=OIP.P9qQ2ewGJ-ugtUeeOZeCVQHaHa&pid=Api&P=0&h=220', '8.2'),
+('Blue Host', '40000', 'https://tse3.mm.bing.net/th?id=OIP.P9qQ2ewGJ-ugtUeeOZeCVQHaHa&pid=Api&P=0&h=220', '8.2'),
 ('Wix', '0', 'https://tse1.mm.bing.net/th?id=OIP.ZjuWpSnUZRhQFwzOcjjQHAHaEV&pid=Api&P=0&h=220', '9.9'),
-('Shopify', '13.000', 'https://tse3.mm.bing.net/th?id=OIP.q1Cr9RBjJP2f49hwp53YTgHaFG&pid=Api&P=0&h=220', '8.9'),
-('Hostinger', '33.000', 'https://tse1.mm.bing.net/th?id=OIP.-_JbKUAPW8ymmH4w8FngLwHaHa&pid=Api&P=0&h=220', '9.8'),
-('Host Armada', '33.000', 'https://tse3.mm.bing.net/th?id=OIP.yS8vCyh4tLiqmDANyaU7UAAAAA&pid=Api&P=0&h=220', '9.3'),
-('Ionos', '13.000', 'https://tse2.mm.bing.net/th?id=OIP.m3dU3cm71qy7tp1kzANKeQHaHa&pid=Api&P=0&h=220', '8.1'),
-('GoDaddy', '117.000', 'https://tse1.mm.bing.net/th?id=OIP.w0Pea3oKoptWr84BJe4nRwAAAA&pid=Api&P=0&h=220', '9.0'),
+('Shopify', '13000', 'https://tse3.mm.bing.net/th?id=OIP.q1Cr9RBjJP2f49hwp53YTgHaFG&pid=Api&P=0&h=220', '8.9'),
+('Hostinger', '33000', 'https://tse1.mm.bing.net/th?id=OIP.-_JbKUAPW8ymmH4w8FngLwHaHa&pid=Api&P=0&h=220', '9.8'),
+('Host Armada', '33000', 'https://tse3.mm.bing.net/th?id=OIP.yS8vCyh4tLiqmDANyaU7UAAAAA&pid=Api&P=0&h=220', '9.3'),
+('Ionos', '13000', 'https://tse2.mm.bing.net/th?id=OIP.m3dU3cm71qy7tp1kzANKeQHaHa&pid=Api&P=0&h=220', '8.1'),
+('GoDaddy', '117000', 'https://tse1.mm.bing.net/th?id=OIP.w0Pea3oKoptWr84BJe4nRwAAAA&pid=Api&P=0&h=220', '9.0'),
 ('Kamatera', '0', 'https://tse2.mm.bing.net/th?id=OIP.-wUDz4i_dDsgbWC3gJdkFQAAAA&pid=Api&P=0&h=220', '9.2'),
 ('Cloudways', '0', 'https://tse2.mm.bing.net/th?id=OIP.IYSWC600b_SQoYCUC96NpAHaEV&pid=Api&P=0&h=220', '9.3'),
-('inMotion Hosting', '30.000', 'https://tse2.mm.bing.net/th?id=OIP.WsduQ5ybEg2wC4BouQBXWAHaE8&pid=Api&P=0&h=220', '8.3'),
+('inMotion Hosting', '30000', 'https://tse2.mm.bing.net/th?id=OIP.WsduQ5ybEg2wC4BouQBXWAHaE8&pid=Api&P=0&h=220', '8.3'),
 ('Wordpress', '0', 'https://tse4.mm.bing.net/th?id=OIP.YXI4yTfws1T73i28BhQ6-AHaHV&pid=Api&P=0&h=220', '8.5');
-
-SELECT * FROM hosting;
 
 CREATE TABLE review (
     userId INTEGER,
@@ -77,6 +61,3 @@ CREATE TABLE review (
 INSERT INTO review (userId, hostId, reviewText, rating)
 VALUES
 (1, 1, 'tes review', '9')
-
-
-SELECT * FROM review;

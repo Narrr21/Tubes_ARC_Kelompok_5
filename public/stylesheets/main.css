@@ -234,3 +234,111 @@ body {
         opacity: 100%;
     }
 }
+
+/* LOGIN */
+/* index */
+.login input{
+    height: 40px;
+    width: 85%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    outline: none;
+}
+.login button{
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-background);
+}
+
+.login button:hover{
+    color: var(--color-btn-primary-text-dark);
+    background-color: var(--color-btn-primary-background-dark);
+}
+
+
+/* USER */
+/* index */
+.user-container {
+    display: flex;
+}
+.user-data{
+    border-style: solid;
+    width: 30%;
+}
+
+.user-data img{
+    padding: 5%;
+    width: 100%;
+}
+
+.user-data h3{
+    text-align: center;
+}
+.user-data .bio {
+    text-align: center;
+}
+.user-data form{
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+}
+.user-data button{
+    width: 100%;
+}
+
+.user-review-data{
+    display: flex;
+}
+.user-review-data img{
+    width: 30%;
+    padding: 3%;
+}
+.user-review-desc{
+    width: 68%;
+    margin-left: 2%;
+}
+.user-review{
+    border-style: solid;
+    width: 70%;
+}
+.user-total-review {
+    width: 100%;
+    text-align: center;
+}
+/* edit */
+.user-edit {
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-edit h3{
+    text-align: center;
+}
+
+.edit-picture{
+    width: 50%;
+    border-style: solid;
+}
+
+#edit-img-upload{
+    margin: 5%;
+}
+
+.edit-picture img{
+    width: 100%;
+    padding: 5%;
+}
+
+.edit-bio{
+    width: 50%;
+    border-style: solid;
+}
+
+.edit-bio textarea{
+    width: 90%;
+    height: 50%;
+    margin: 5%;
+}
+.edit-bio button{
+    width: 20%;
+    margin-left: 40%;
+}
