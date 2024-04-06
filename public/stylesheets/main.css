@@ -235,6 +235,27 @@ body {
     }
 }
 
+/* LOGIN */
+/* index */
+.login input{
+    height: 40px;
+    width: 85%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    outline: none;
+}
+.login button{
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-background);
+}
+
+.login button:hover{
+    color: var(--color-btn-primary-text-dark);
+    background-color: var(--color-btn-primary-background-dark);
+}
+
+
 /* USER */
 /* index */
 .user-container {
