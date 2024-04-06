@@ -255,6 +255,26 @@ body {
     background-color: var(--color-btn-primary-background-dark);
 }
 
+/* REGISTER */
+/* index */
+
+.register input{
+    height: 40px;
+    width: 85%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    outline: none;
+}
+.register button{
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-background);
+}
+
+.register button:hover{
+    color: var(--color-btn-primary-text-dark);
+    background-color: var(--color-btn-primary-background-dark);
+}
 
 /* USER */
 /* index */
