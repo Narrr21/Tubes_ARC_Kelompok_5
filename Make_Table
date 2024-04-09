@@ -35,7 +35,7 @@ CREATE TABLE hosting (
 
 INSERT INTO hosting (hostname, price, images, rating)
 VALUES
-('Blue Host', '40000', 'https://tse3.mm.bing.net/th?id=OIP.P9qQ2ewGJ-ugtUeeOZeCVQHaHa&pid=Api&P=0&h=220', '8.2'),
+('Blue Host', '40000', 'https://tse1.mm.bing.net/th?id=OIP.84jYVFFMgEkx-kksVWbmqwHaFj&pid=Api&P=0&h=220', '8.2'),
 ('Wix', '0', 'https://tse1.mm.bing.net/th?id=OIP.ZjuWpSnUZRhQFwzOcjjQHAHaEV&pid=Api&P=0&h=220', '9.9'),
 ('Shopify', '13000', 'https://tse3.mm.bing.net/th?id=OIP.q1Cr9RBjJP2f49hwp53YTgHaFG&pid=Api&P=0&h=220', '8.9'),
 ('Hostinger', '33000', 'https://tse1.mm.bing.net/th?id=OIP.-_JbKUAPW8ymmH4w8FngLwHaHa&pid=Api&P=0&h=220', '9.8'),

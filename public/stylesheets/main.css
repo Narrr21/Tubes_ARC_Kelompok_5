@@ -38,7 +38,10 @@ body {
 .home-card{
     position: relative;
     width: 25%;
+    border-radius: 5%;
+    transition: 0.5s;
 }
+
 .home-card img{
     justify-self: center;
     width: 90%;
@@ -46,6 +49,7 @@ body {
     margin: 5%;
     height: auto;
     height: 12rem;
+    border-radius: 10%;
 }
 
 .home-card-desc{
@@ -181,6 +185,8 @@ body {
 .search-display-card{
     position: relative;
     width: 25%;
+    border-radius: 5%;
+    transition: 0.5s;
 }
 
 .search-display-card a{
@@ -196,6 +202,7 @@ body {
     margin: 5%;
     height: auto;
     height: 12rem;
+    border-radius: 10%;
 }
 
 .search-display-desc{
@@ -289,13 +296,16 @@ body {
 .user-data img{
     padding: 5%;
     width: 100%;
+    border-radius: 10%;
 }
 
 .user-data h3{
+    padding: 0 5%;
     text-align: center;
 }
 .user-data .bio {
     text-align: center;
+    padding: 0 5% 5%;
 }
 .user-data form{
     width: 70%;
@@ -346,6 +356,7 @@ body {
 .edit-picture img{
     width: 100%;
     padding: 5%;
+    border-radius: 10%;
 }
 
 .edit-bio{
@@ -357,6 +368,7 @@ body {
     width: 90%;
     height: 50%;
     margin: 5%;
+    padding: 2%;
 }
 .edit-bio button{
     width: 20%;
