@@ -91,40 +91,73 @@ body {
 
 /* Information */
 .info-container{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
 }
 
 .info-data{
     display: flex;
-    border-style: dashed;
+    border-style: solid;
     width: 50%;
     align-items: center;
+    padding: 2%;
+    height: 400px;
 }
 
 
 .info-data img{
-    width: 30rem;
+    width: 50%;
+    height: 13rem;
+    border-radius: 5%;
 }
 
 .info-comment{
-    border-style: dashed;
+    border-style: solid;
     width: 50%;
+    padding: 2%;
+    text-align: center;
+    height: 400px;
+}
+
+.info-comment h2{
+   margin : 0 0 20px;
+}
+
+.container-review{
+    padding-right: 3%;
+    height: 85%;
+    overflow: auto;
+}
+
+.review{
+    text-align: justify;
+    font-size: 12px;
+    line-height: 24px;
+    background-color: var(--color-background-dark);
+    padding: 2%;
+    font-weight: 300;
+    color: #ffff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.review p{
+    margin: 0;
 }
 
 .info-desc{
-    border-style: dashed;
     justify-self: center;
-    width: 90%;
-    margin-left: 2%;
-    margin-right: 2%;
+    width: 50%;
+    margin-left: 4%;
 }
 
 .info-desc div{
-    height: 50px;
+    height: 100%;
     display: flex;
     width: 100%;
     justify-content: left;
+    margin: 16px 0;
 }
 
 .info-desc div label{
@@ -139,6 +172,41 @@ body {
     justify-content: center;
     font-size: smaller;
 }
+
+.user-comment{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.user-comment-title{
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.user-comment-title p{
+    display: inline;
+}
+
+.user-comment form{
+    font-size: 17px;
+}
+
+.user-comment form h4{
+    margin-top: 13px;
+    margin-bottom: 10px;
+}
+
+.user-comment form textarea{
+    width: 100%;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.user-comment form button{
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 8px 12px;
+}
+
 /* SEARCH */
 /* index */
 .search-input-text{

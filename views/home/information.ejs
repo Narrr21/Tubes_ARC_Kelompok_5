@@ -3,7 +3,7 @@
         <img src="<%= data[0]['images']%>" alt="">
         <div class="info-desc">
             <div>
-                <label>id </label>
+                <label>Id </label>
                 <p>: <%= data[0]["hostId"]%></p>
             </div>
             <div>
@@ -11,7 +11,7 @@
                 <p>: <%= data[0]["hostName"]%></p>
             </div>
             <div>
-                <label>Jenis </label>
+                <label>Harga </label>
                 <p>: <%= data[0]["price"]%></p>
             </div>
             <div>
@@ -21,6 +21,55 @@
         </div>
     </article>
     <article class="info-comment">
-        <p>Ini comment</p>
+        <h2>Apa Kata Mereka?</h2>
+        <div class="container-review">
+            <!-- Ini seharusnya ambil reviewnya dari database, tapi aku masih gatau caranya gimana, jadi kubuat layoutnya dulu ya nanti tinggal ubah aja isinya sesuai database -->
+            <div class="review">
+                <p>Macchiato</p> <!--userName dari database dataUser-->
+                <p>Rating : 9/10</p> <!--rating dari database review-->
+                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p> <!-- reviewText dan reviewDate dari database review-->
+            </div>
+            <div class="review">
+                <p>Macchiato</p>
+                <p>Rating : 9/10</p>
+                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p>
+            </div>
+            <div class="review">
+                <p>Macchiato</p>
+                <p>Rating : 9/10</p>
+                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p>
+            </div>
+            <div class="review">
+                <p>Macchiato</p>
+                <p>Rating : 9/10</p>
+                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p>
+            </div>
+        </div>
     </article>
+    <div class="user-comment">
+        <div class="user-comment-title">
+            <label>Yuk Bagikan Penilaianmu Terkait</label>
+            <p> <%= data[0]["hostName"]%>!</p>
+        </div>
+        <!--Ini harusnya kirim datanya ke database -->
+        <form>
+            <label>Rating :</label>
+            <select>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+            <h4>Komentar : </h4>
+            <textarea name="Comment" rows="6" placeholder="Write Message Here"></textarea>
+            <button class="btn-primary" type="submit">Kirim</button>
+        </form>
+    </div>
 </section>
