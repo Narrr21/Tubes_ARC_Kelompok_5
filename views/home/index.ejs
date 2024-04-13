@@ -1,6 +1,7 @@
 <section class="home-container">
     <% for (let i = 0; i < data.length; i++) {%>
         <article class="home-card">
+            <a href="/home/info/<%= (i+1)%>"></a>
             <img src="<%= data[i]["images"]%>">
             <div class="home-card-desc">
                 <div>
