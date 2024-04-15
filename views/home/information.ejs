@@ -3,10 +3,6 @@
         <img src="<%= data[0]['images']%>" alt="">
         <div class="info-desc">
             <div>
-                <label>Id </label>
-                <p>: <%= data[0]["hostId"]%></p>
-            </div>
-            <div>
                 <label>Nama </label>
                 <p>: <%= data[0]["hostName"]%></p>
             </div>
@@ -16,34 +12,21 @@
             </div>
             <div>
                 <label>Rating </label>
-                <p>: <%= data[0]["rating"]%></p>
+                <p>: <%= averageRating %></p>
             </div>
         </div>
     </article>
     <article class="info-comment">
         <h2>Apa Kata Mereka?</h2>
         <div class="container-review">
-            <!-- Ini seharusnya ambil reviewnya dari database, tapi aku masih gatau caranya gimana, jadi kubuat layoutnya dulu ya nanti tinggal ubah aja isinya sesuai database -->
+            <% for (let i = 0; i < review.length; i++) {%>
             <div class="review">
-                <p>Macchiato</p> <!--userName dari database dataUser-->
-                <p>Rating : 9/10</p> <!--rating dari database review-->
-                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p> <!-- reviewText dan reviewDate dari database review-->
+                <p><%= review[i].username %></review.username></p> <!--userName dari database dataUser-->
+                <p>Rating : <%= review[i].rating %>/10</p> <!--rating dari database review-->
+                <p><%= review[i].reviewText %></p> <!-- reviewText dan reviewDate dari database review-->
+                <p><%= review[i].reviewDate.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' })%></p>
             </div>
-            <div class="review">
-                <p>Macchiato</p>
-                <p>Rating : 9/10</p>
-                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p>
-            </div>
-            <div class="review">
-                <p>Macchiato</p>
-                <p>Rating : 9/10</p>
-                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p>
-            </div>
-            <div class="review">
-                <p>Macchiato</p>
-                <p>Rating : 9/10</p>
-                <p>Wahh keren banget web hostingnya, saya senang menggunakan web hosting ini, murah meriah hehehhee, mantappp, bintang 5 buat web hostingnya muahh. (10/04/2024)</p>
-            </div>
+            <% } %>
         </div>
     </article>
     <div class="user-comment">
@@ -53,7 +36,7 @@
         </div>
         <!--Ini harusnya kirim datanya ke database -->
         <% if (locals.isLoggedIn) { %>
-            <form action="/home/info/:uid" method="post">
+            <form action="/home/info/<%= data[0]["hostId"]%>" method="post">
                 <label>Rating :</label>
                 <select name="rating" id="rating">
                     <option>0</option>

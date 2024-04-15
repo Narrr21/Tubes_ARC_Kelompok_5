@@ -6,24 +6,28 @@ const rev = require('../controller/review')
 router
     .route('/')
     .get(async (req, res) => {
-        host = await db.getAllData('hosting')
+        host = await rev.getHostAndReview()
+        console.log(host)
         res.render('home/index', {data: host})
     })
 
 router
-    .route('/info/:uid')
+    .route('/info/:hostId')
     .get(async (req, res) => {
-        tag = req.params.uid
+        tag = req.params.hostId
+        console.log(tag)
         host = await db.getDataByCriteria('hosting','hostId',tag)
-        res.render('home/information', {data:host})
+        reviews = await rev.getReviewByHostId(tag);
+        avg = await rev.getAverageReviewByHostId(tag);
+        res.render('home/information', {data:host,review : reviews, averageRating : avg})
     })
     .post(async (req, res) => {
-        var hostId = 1
-        await rev.review(req, res, hostId)
-        console.log(0)
-        tag = req.params.uid
+        tag = req.params.hostId
+        await rev.review(req, res, tag)
         host = await db.getDataByCriteria('hosting','hostId',tag)
-        res.render('home/information', {data:host});
+        reviews = await rev.getReviewByHostId(tag);
+        avg = await rev.getAverageReviewByHostId(tag);
+        res.render('home/information', {data:host,review : reviews, averageRating : avg});
     })
 
 module.exports = router

@@ -1,13 +1,9 @@
 <section class="home-container">
     <% for (let i = 0; i < data.length; i++) {%>
         <article class="home-card">
-            <a href="/home/info/<%= (i+1)%>"></a>
+            <a href="/home/info/<%= data[i]["hostId"]%>"></a>
             <img src="<%= data[i]["images"]%>">
             <div class="home-card-desc">
-                <div>
-                    <label>id </label>
-                    <p>: <%= data[i]["hostId"]%></p>
-                </div>
                 <div>
                     <label>Nama </label>
                     <p>: <%= data[i]["hostName"]%></p>
