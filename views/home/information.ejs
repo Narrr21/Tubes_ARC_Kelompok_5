@@ -52,24 +52,29 @@
             <p> <%= data[0]["hostName"]%>!</p>
         </div>
         <!--Ini harusnya kirim datanya ke database -->
-        <form>
-            <label>Rating :</label>
-            <select>
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-            </select>
-            <h4>Komentar : </h4>
-            <textarea name="Comment" rows="6" placeholder="Write Message Here"></textarea>
-            <button class="btn-primary" type="submit">Kirim</button>
-        </form>
+        <% if (locals.isLoggedIn) { %>
+            <form action="/home/info/:uid" method="post">
+                <label>Rating :</label>
+                <select name="rating" id="rating">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                <h4>Komentar : </h4>
+                <textarea name="reviewText" id="reviewText" rows="6" placeholder="Write Message Here"></textarea>
+                <button class="btn-primary" type="submit">Kirim</button>
+            </form>
+        <% } else { %>
+            <p>Anda Harus Login Terlebih Dahulu untuk Membagikan Review!</p>
+        <% } %>
+        
     </div>
 </section>
