@@ -29,27 +29,27 @@ CREATE TABLE hosting (
 	hostId INTEGER PRIMARY KEY AUTO_INCREMENT,
     hostName VARCHAR(100) NOT NULL,
     price INT NOT NULL,
-    images VARCHAR(255) NOT NULL, 
-    rating FLOAT NOT NULL
+    images VARCHAR(255) NOT NULL 
 );
 
-INSERT INTO hosting (hostname, price, images, rating)
+INSERT INTO hosting (hostname, price, images)
 VALUES
-('Blue Host', '40000', 'https://tse1.mm.bing.net/th?id=OIP.84jYVFFMgEkx-kksVWbmqwHaFj&pid=Api&P=0&h=220', '8.2'),
-('Wix', '0', 'https://tse1.mm.bing.net/th?id=OIP.ZjuWpSnUZRhQFwzOcjjQHAHaEV&pid=Api&P=0&h=220', '9.9'),
-('Shopify', '13000', 'https://tse3.mm.bing.net/th?id=OIP.q1Cr9RBjJP2f49hwp53YTgHaFG&pid=Api&P=0&h=220', '8.9'),
-('Hostinger', '33000', 'https://tse1.mm.bing.net/th?id=OIP.-_JbKUAPW8ymmH4w8FngLwHaHa&pid=Api&P=0&h=220', '9.8'),
-('Host Armada', '33000', 'https://tse3.mm.bing.net/th?id=OIP.yS8vCyh4tLiqmDANyaU7UAAAAA&pid=Api&P=0&h=220', '9.3'),
-('Ionos', '13000', 'https://tse2.mm.bing.net/th?id=OIP.m3dU3cm71qy7tp1kzANKeQHaHa&pid=Api&P=0&h=220', '8.1'),
-('GoDaddy', '117000', 'https://tse1.mm.bing.net/th?id=OIP.w0Pea3oKoptWr84BJe4nRwAAAA&pid=Api&P=0&h=220', '9.0'),
-('Kamatera', '0', 'https://tse2.mm.bing.net/th?id=OIP.-wUDz4i_dDsgbWC3gJdkFQAAAA&pid=Api&P=0&h=220', '9.2'),
-('Cloudways', '0', 'https://tse2.mm.bing.net/th?id=OIP.IYSWC600b_SQoYCUC96NpAHaEV&pid=Api&P=0&h=220', '9.3'),
-('inMotion Hosting', '30000', 'https://tse2.mm.bing.net/th?id=OIP.WsduQ5ybEg2wC4BouQBXWAHaE8&pid=Api&P=0&h=220', '8.3'),
-('Wordpress', '0', 'https://tse4.mm.bing.net/th?id=OIP.YXI4yTfws1T73i28BhQ6-AHaHV&pid=Api&P=0&h=220', '8.5');
+('Blue Host', '40000', 'https://tse1.mm.bing.net/th?id=OIP.84jYVFFMgEkx-kksVWbmqwHaFj&pid=Api&P=0&h=220'),
+('Wix', '0', 'https://tse1.mm.bing.net/th?id=OIP.ZjuWpSnUZRhQFwzOcjjQHAHaEV&pid=Api&P=0&h=220'),
+('Shopify', '13000', 'https://tse3.mm.bing.net/th?id=OIP.q1Cr9RBjJP2f49hwp53YTgHaFG&pid=Api&P=0&h=220'),
+('Hostinger', '33000', 'https://tse1.mm.bing.net/th?id=OIP.-_JbKUAPW8ymmH4w8FngLwHaHa&pid=Api&P=0&h=220'),
+('Host Armada', '33000', 'https://tse3.mm.bing.net/th?id=OIP.yS8vCyh4tLiqmDANyaU7UAAAAA&pid=Api&P=0&h=220'),
+('Ionos', '13000', 'https://tse2.mm.bing.net/th?id=OIP.m3dU3cm71qy7tp1kzANKeQHaHa&pid=Api&P=0&h=220'),
+('GoDaddy', '117000', 'https://tse1.mm.bing.net/th?id=OIP.w0Pea3oKoptWr84BJe4nRwAAAA&pid=Api&P=0&h=220'),
+('Kamatera', '0', 'https://tse2.mm.bing.net/th?id=OIP.-wUDz4i_dDsgbWC3gJdkFQAAAA&pid=Api&P=0&h=220'),
+('Cloudways', '0', 'https://tse2.mm.bing.net/th?id=OIP.IYSWC600b_SQoYCUC96NpAHaEV&pid=Api&P=0&h=220'),
+('inMotion Hosting', '30000', 'https://tse2.mm.bing.net/th?id=OIP.WsduQ5ybEg2wC4BouQBXWAHaE8&pid=Api&P=0&h=220'),
+('Wordpress', '0', 'https://tse4.mm.bing.net/th?id=OIP.YXI4yTfws1T73i28BhQ6-AHaHV&pid=Api&P=0&h=220');
 
 CREATE TABLE review (
     userId INTEGER,
     hostId INTEGER,
+    username VARCHAR(255),
     reviewText TEXT,
     rating INTEGER,
     reviewDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
