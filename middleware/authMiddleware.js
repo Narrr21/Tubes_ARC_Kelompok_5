@@ -9,7 +9,7 @@ const requireAuth = (req, res, next) => {
         res.redirect('/auth/login');
       } else {
         req.decodedCookies = decodedToken
-        console.log(decodedToken);
+        // console.log(decodedToken);
         next();
       }
     });

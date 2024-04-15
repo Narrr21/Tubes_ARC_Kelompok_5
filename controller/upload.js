@@ -10,7 +10,7 @@ function storageMake(targetPath,fileName,source){
             cb(null, path.join(__dirname, targetPath))
         },
         filename: (req, file, cb) => {
-            console.log(file)
+            // console.log(file)
             cb(null, fileName)
         }
     })

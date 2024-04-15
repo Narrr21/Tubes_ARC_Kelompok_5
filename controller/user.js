@@ -105,7 +105,7 @@ async function getUserReview(id){
 
 async function updateBio(req,res,id){
     const { bio } = req.body;
-    console.log(bio)
+    // console.log(bio)
     var userBio = await pool.query(`
     UPDATE 
         dataUser
