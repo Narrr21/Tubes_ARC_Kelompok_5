@@ -21,7 +21,7 @@
         <div class="container-review">
             <% for (let i = 0; i < review.length; i++) {%>
             <div class="review">
-                <p><%= review[i].username %></review.username></p> <!--userName dari database dataUser-->
+                <p><a href="/user/<%= review[i].username %>"><%= review[i].username %></a></review.username></p> <!--userName dari database dataUser-->
                 <p>Rating : <%= review[i].rating %>/10</p> <!--rating dari database review-->
                 <p><%= review[i].reviewText %></p> <!-- reviewText dan reviewDate dari database review-->
                 <p><%= review[i].reviewDate.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' })%></p>
