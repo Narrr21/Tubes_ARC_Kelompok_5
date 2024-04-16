@@ -34,7 +34,6 @@
             <label>Yuk Bagikan Penilaianmu Terkait</label>
             <p> <%= data[0]["hostName"]%>!</p>
         </div>
-        <!--Ini harusnya kirim datanya ke database -->
         <% if (locals.isLoggedIn) { %>
             <form action="/home/info/<%= data[0]["hostId"]%>" method="post">
                 <label>Rating :</label>

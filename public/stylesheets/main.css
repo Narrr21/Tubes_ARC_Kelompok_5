@@ -108,7 +108,7 @@ body {
     width: 50%;
     align-items: center;
     padding: 2%;
-    height: 400px;
+    height: 80vh;
 }
 
 
@@ -123,7 +123,7 @@ body {
     width: 50%;
     padding: 2%;
     text-align: center;
-    height: 400px;
+    height: 80vh;
 }
 
 .info-comment h2{
@@ -132,7 +132,7 @@ body {
 
 .container-review{
     padding-right: 3%;
-    height: 85%;
+    height: 87%;
     overflow: auto;
 }
 
@@ -152,6 +152,10 @@ body {
     margin: 0;
 }
 
+.review a{
+    text-decoration: none;
+    color: var(--color-text-light);
+}
 .info-desc{
     justify-self: center;
     width: 50%;
@@ -361,6 +365,7 @@ body {
 /* index */
 .user-container {
     display: flex;
+    height: 90vh;
 }
 .user-data{
     border-style: solid;
@@ -390,13 +395,36 @@ body {
     width: 100%;
 }
 
+.container-user-review{
+    margin: 20px;
+    padding-right: 20px;
+    height: 82%;
+    overflow: auto;
+}
+
 .user-review-data{
     display: flex;
+    text-align: justify;
+    font-size: 12px;
+    line-height: 24px;
+    background-color: var(--color-background-dark);
+    padding: 2%;
+    font-weight: 300;
+    color: #ffff;
+    border-radius: 10px;
+    margin: 10px 0px;
 }
+
 .user-review-data img{
     width: 30%;
     padding: 3%;
+    border-radius: 30px;
 }
+.user-review-data h3 a{
+    text-decoration: none;
+    color: var(--color-text-light);
+}
+
 .user-review-desc{
     width: 68%;
     margin-left: 2%;
@@ -405,6 +433,7 @@ body {
     border-style: solid;
     width: 70%;
 }
+
 .user-total-review {
     width: 100%;
     text-align: center;
