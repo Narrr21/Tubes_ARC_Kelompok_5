@@ -5,7 +5,7 @@
     <% if (data[0]["hostId"] != 'Nothing Found') { %>
         <% for (let i = 0; i < data.length; i++) {%>
             <article class="search-display-card">
-                <a href="/home/info/<%= (i+1)%>"></a>
+                <a href="/home/info/<%= data[i]["hostId"]%>"></a>
                     <img src="<%= data[i]["images"]%>">
                     <div class="search-display-desc">
                         <div>
